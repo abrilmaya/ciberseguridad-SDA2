@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 30 25% 97%;
+    --foreground: 25 30% 12%;
+
+    --card: 35 30% 95%;
+    --card-foreground: 25 30% 12%;
+
+    --popover: 30 25% 97%;
+    --popover-foreground: 25 30% 12%;
+
+    --primary: 25 85% 55%;
+    --primary-foreground: 30 25% 98%;
+
+    --secondary: 35 60% 88%;
+    --secondary-foreground: 25 30% 15%;
+
+    --muted: 35 25% 90%;
+    --muted-foreground: 25 15% 40%;
+
+    --accent: 18 80% 50%;
+    --accent-foreground: 30 25% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 25% 85%;
+    --input: 30 25% 85%;
+    --ring: 25 85% 55%;
+
+    --radius: 0.75rem;
+
+    /* Custom warm colors */
+    --amber: 38 92% 50%;
+    --amber-light: 45 95% 70%;
+    --copper: 25 75% 45%;
+    --terracotta: 15 65% 55%;
+    --cream: 40 40% 94%;
+    --warm-gray: 30 10% 35%;
+    --dark-brown: 25 35% 15%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(25 85% 55%) 0%, hsl(18 80% 50%) 50%, hsl(15 65% 55%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(40 40% 94%) 0%, hsl(35 30% 95%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(35 30% 95%) 0%, hsl(30 25% 92%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(25 30% 20% / 0.15);
+    --shadow-card: 0 8px 30px -8px hsl(25 30% 20% / 0.12);
+    --shadow-glow: 0 0 40px hsl(25 85% 55% / 0.25);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 25 35% 10%;
+    --foreground: 35 30% 95%;
+
+    --card: 25 30% 14%;
+    --card-foreground: 35 30% 95%;
+
+    --popover: 25 35% 10%;
+    --popover-foreground: 35 30% 95%;
+
+    --primary: 25 85% 55%;
+    --primary-foreground: 25 35% 10%;
+
+    --secondary: 25 25% 20%;
+    --secondary-foreground: 35 30% 95%;
+
+    --muted: 25 20% 18%;
+    --muted-foreground: 35 15% 60%;
+
+    --accent: 18 80% 50%;
+    --accent-foreground: 25 35% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 25 25% 20%;
+    --input: 25 25% 20%;
+    --ring: 25 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+  }
+}
